@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-}
+};
 
-module.exports = nextConfig
+module.exports = {
+  basePath: process.env.GITHUB_ACTIONS && "/gum-talk-app",
+  trailingSlash: true,
+};
