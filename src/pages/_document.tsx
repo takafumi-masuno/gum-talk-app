@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <meta name="application-name" content="gum-talk-app" />
       </Head>
-      <body>
+      <body className="antialiased text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900">
         <Main />
         <NextScript />
       </body>

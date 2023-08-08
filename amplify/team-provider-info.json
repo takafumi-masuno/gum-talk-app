@@ -1,0 +1,28 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-gumtalkapp-dev-112122-authRole",
+      "UnauthRoleArn": "arn:aws:iam::756522671007:role/amplify-gumtalkapp-dev-112122-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::756522671007:role/amplify-gumtalkapp-dev-112122-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-gumtalkapp-dev-112122-deployment",
+      "UnauthRoleName": "amplify-gumtalkapp-dev-112122-unauthRole",
+      "StackName": "amplify-gumtalkapp-dev-112122",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:756522671007:stack/amplify-gumtalkapp-dev-112122/44bb0a70-3592-11ee-b06f-0ac1309dec59",
+      "AmplifyAppId": "d2nnsabnojm86s"
+    }
+  },
+  "gumtalkapp": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-gumtalkapp-gumtalkapp-112622-authRole",
+      "UnauthRoleArn": "arn:aws:iam::756522671007:role/amplify-gumtalkapp-gumtalkapp-112622-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::756522671007:role/amplify-gumtalkapp-gumtalkapp-112622-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-gumtalkapp-gumtalkapp-112622-deployment",
+      "UnauthRoleName": "amplify-gumtalkapp-gumtalkapp-112622-unauthRole",
+      "StackName": "amplify-gumtalkapp-gumtalkapp-112622",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:756522671007:stack/amplify-gumtalkapp-gumtalkapp-112622/f795efc0-3592-11ee-8336-06c6e2418585",
+      "AmplifyAppId": "d2nnsabnojm86s"
+    }
+  }
+}
