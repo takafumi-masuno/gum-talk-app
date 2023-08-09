@@ -3,7 +3,7 @@ import styles from "@/styles/Home.module.css";
 import { API } from '@aws-amplify/api'
 import config from '../aws-exports'
 import { getTalkTheme } from "@/graphql/queries";
-import { GetTalkThemeQuery, talkTheme } from "@/API";
+import { GetTalkThemeQuery } from "@/API";
 import { GraphQLResult } from '@aws-amplify/api-graphql'
 import { useEffect, useState } from "react";
 
@@ -21,6 +21,7 @@ const getTT = async () => {
 }
 
 const Home = () => {
+
   const [talkTheme, setTalkTheme] = useState('');
   useEffect(() => {
     const talkThemeResponse = getTT();

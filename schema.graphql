@@ -1,0 +1,106 @@
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+type Mutation {
+  createTalkTheme(input: CreateTalkThemeInput!): talkTheme
+  deleteTalkTheme(input: DeleteTalkThemeInput!): talkTheme
+  updateTalkTheme(input: UpdateTalkThemeInput!): talkTheme
+}
+
+type Query {
+  getTalkTheme(talkId: Int!): talkTheme
+  listTalkThemes(filter: TableTalkThemeFilterInput, limit: Int, nextToken: String): talkThemeConnection
+}
+
+type Subscription {
+  onCreateTalkTheme(talkId: Int, talkTheme: String): talkTheme @aws_subscribe(mutations : ["createTalkTheme"])
+  onDeleteTalkTheme(talkId: Int, talkTheme: String): talkTheme @aws_subscribe(mutations : ["deleteTalkTheme"])
+  onUpdateTalkTheme(talkId: Int, talkTheme: String): talkTheme @aws_subscribe(mutations : ["updateTalkTheme"])
+}
+
+type talkTheme {
+  talkId: Int!
+  talkTheme: String!
+}
+
+type talkThemeConnection {
+  items: [talkTheme]
+  nextToken: String
+}
+
+input CreateTalkThemeInput {
+  talkId: Int!
+  talkTheme: String!
+}
+
+input DeleteTalkThemeInput {
+  talkId: Int!
+}
+
+input TableBooleanFilterInput {
+  eq: Boolean
+  ne: Boolean
+}
+
+input TableFloatFilterInput {
+  between: [Float]
+  contains: Float
+  eq: Float
+  ge: Float
+  gt: Float
+  le: Float
+  lt: Float
+  ne: Float
+  notContains: Float
+}
+
+input TableIDFilterInput {
+  beginsWith: ID
+  between: [ID]
+  contains: ID
+  eq: ID
+  ge: ID
+  gt: ID
+  le: ID
+  lt: ID
+  ne: ID
+  notContains: ID
+}
+
+input TableIntFilterInput {
+  between: [Int]
+  contains: Int
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+  notContains: Int
+}
+
+input TableStringFilterInput {
+  beginsWith: String
+  between: [String]
+  contains: String
+  eq: String
+  ge: String
+  gt: String
+  le: String
+  lt: String
+  ne: String
+  notContains: String
+}
+
+input TableTalkThemeFilterInput {
+  talkId: TableIntFilterInput
+  talkTheme: TableStringFilterInput
+}
+
+input UpdateTalkThemeInput {
+  talkId: Int!
+  talkTheme: String
+}
