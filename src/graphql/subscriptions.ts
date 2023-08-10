@@ -3,28 +3,46 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateTalkTheme = /* GraphQL */ `
-  subscription OnCreateTalkTheme($talkId: Int, $talkTheme: String) {
-    onCreateTalkTheme(talkId: $talkId, talkTheme: $talkTheme) {
+  subscription OnCreateTalkTheme(
+    $filter: ModelSubscriptionTalkThemeFilterInput
+  ) {
+    onCreateTalkTheme(filter: $filter) {
+      id
       talkId
       talkTheme
+      genre
+      createdAt
+      updatedAt
       __typename
     }
   }
 `;
 export const onUpdateTalkTheme = /* GraphQL */ `
-  subscription OnUpdateTalkTheme($talkId: Int, $talkTheme: String) {
-    onUpdateTalkTheme(talkId: $talkId, talkTheme: $talkTheme) {
+  subscription OnUpdateTalkTheme(
+    $filter: ModelSubscriptionTalkThemeFilterInput
+  ) {
+    onUpdateTalkTheme(filter: $filter) {
+      id
       talkId
       talkTheme
+      genre
+      createdAt
+      updatedAt
       __typename
     }
   }
 `;
 export const onDeleteTalkTheme = /* GraphQL */ `
-  subscription OnDeleteTalkTheme($talkId: Int, $talkTheme: String) {
-    onDeleteTalkTheme(talkId: $talkId, talkTheme: $talkTheme) {
+  subscription OnDeleteTalkTheme(
+    $filter: ModelSubscriptionTalkThemeFilterInput
+  ) {
+    onDeleteTalkTheme(filter: $filter) {
+      id
       talkId
       talkTheme
+      genre
+      createdAt
+      updatedAt
       __typename
     }
   }
