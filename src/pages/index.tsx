@@ -2,29 +2,47 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import { API } from '@aws-amplify/api'
 import config from '../aws-exports'
-import { getTalkTheme } from "@/graphql/queries";
-import { GetTalkThemeQuery, talkTheme } from "@/API";
+import { getTalkTheme, listTalkThemes } from "@/graphql/queries";
+import { GetTalkThemeQuery, ListTalkThemesQuery } from "@/API";
 import { GraphQLResult } from '@aws-amplify/api-graphql'
 import { useEffect, useState } from "react";
+import { error } from "console";
 
 API.configure(config)
 
-const getTT = async () => {
-  const id = Math.floor(Math.random() * 6) + 1;
-  const response = await API.graphql({
-     query: getTalkTheme,
-     variables: {
-        talkId: id
-     },
-  }) as GraphQLResult<GetTalkThemeQuery>
+// List all items
+const allTalkThemes = async () => {
+  const response  = await API.graphql({
+    query: listTalkThemes
+  }) as GraphQLResult<ListTalkThemesQuery>
   return response
-}
+};
+
+// const getTT = async () => {
+//   const id = Math.floor(Math.random() * 6);
+//   const response = await API.graphql({
+//      query: getTalkTheme,
+//      variables: {
+//         talkId: id
+//      },
+//   }) as GraphQLResult<GetTalkThemeQuery>
+//   return response
+// }
+
+// const getTalkTheme = () => {
+//   const id = Math.floor(Math.random() * 6);
+//   const talkTheme = allTalkThemes()
+//     .then((res) => res.data!.listTalkThemes!.items[id]!.talkTheme as string)
+//   return talkTheme
+// }
 
 const Home = () => {
   const [talkTheme, setTalkTheme] = useState('');
   useEffect(() => {
-    const talkThemeResponse = getTT();
-    talkThemeResponse.then(({data}) => setTalkTheme(data!.getTalkTheme!.talkTheme))
+    const id = Math.floor(Math.random() * 6);
+    allTalkThemes()
+      .then((res) => setTalkTheme(res.data?.listTalkThemes?.items[id]?.talkTheme!))
+      .catch((err) => console.log(err))
   }, [])
   return (
     <>

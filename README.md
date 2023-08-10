@@ -1,1 +1,1 @@
-### 🔗 [Visit Site](https://takafumi-masuno.github.io/gum-talk-app/)
+### 🔗 [Visit Site](https://prod.d96lcul1t77qw.amplifyapp.com/)
