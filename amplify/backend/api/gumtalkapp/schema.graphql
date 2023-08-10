@@ -1,0 +1,6 @@
+type TalkTheme @model @auth(rules: [{allow: public}]) {
+  id: ID
+  talkId: Int!
+  talkTheme: String
+  genre: String
+} 
