@@ -1,6 +1,7 @@
-type TalkTheme @model @auth(rules: [{allow: public}]) {
-  id: ID
+type TalkTheme @model @auth(rules: [{allow: public}]) @searchable {
+  id: ID!
   talkId: Int!
   talkTheme: String
   genre: String
-} 
+}
+ 

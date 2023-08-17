@@ -72,7 +72,7 @@ export type ModelSizeInput = {
 
 export type TalkTheme = {
   __typename: "TalkTheme",
-  id?: string | null,
+  id: string,
   talkId: number,
   talkTheme?: string | null,
   genre?: string | null,
@@ -121,6 +121,141 @@ export type ModelTalkThemeConnection = {
   __typename: "ModelTalkThemeConnection",
   items:  Array<TalkTheme | null >,
   nextToken?: string | null,
+};
+
+export type SearchableTalkThemeFilterInput = {
+  id?: SearchableIDFilterInput | null,
+  talkId?: SearchableIntFilterInput | null,
+  talkTheme?: SearchableStringFilterInput | null,
+  genre?: SearchableStringFilterInput | null,
+  createdAt?: SearchableStringFilterInput | null,
+  updatedAt?: SearchableStringFilterInput | null,
+  and?: Array< SearchableTalkThemeFilterInput | null > | null,
+  or?: Array< SearchableTalkThemeFilterInput | null > | null,
+  not?: SearchableTalkThemeFilterInput | null,
+};
+
+export type SearchableIDFilterInput = {
+  ne?: string | null,
+  gt?: string | null,
+  lt?: string | null,
+  gte?: string | null,
+  lte?: string | null,
+  eq?: string | null,
+  match?: string | null,
+  matchPhrase?: string | null,
+  matchPhrasePrefix?: string | null,
+  multiMatch?: string | null,
+  exists?: boolean | null,
+  wildcard?: string | null,
+  regexp?: string | null,
+  range?: Array< string | null > | null,
+};
+
+export type SearchableIntFilterInput = {
+  ne?: number | null,
+  gt?: number | null,
+  lt?: number | null,
+  gte?: number | null,
+  lte?: number | null,
+  eq?: number | null,
+  range?: Array< number | null > | null,
+};
+
+export type SearchableStringFilterInput = {
+  ne?: string | null,
+  gt?: string | null,
+  lt?: string | null,
+  gte?: string | null,
+  lte?: string | null,
+  eq?: string | null,
+  match?: string | null,
+  matchPhrase?: string | null,
+  matchPhrasePrefix?: string | null,
+  multiMatch?: string | null,
+  exists?: boolean | null,
+  wildcard?: string | null,
+  regexp?: string | null,
+  range?: Array< string | null > | null,
+};
+
+export type SearchableTalkThemeSortInput = {
+  field?: SearchableTalkThemeSortableFields | null,
+  direction?: SearchableSortDirection | null,
+};
+
+export enum SearchableTalkThemeSortableFields {
+  id = "id",
+  talkId = "talkId",
+  talkTheme = "talkTheme",
+  genre = "genre",
+  createdAt = "createdAt",
+  updatedAt = "updatedAt",
+}
+
+
+export enum SearchableSortDirection {
+  asc = "asc",
+  desc = "desc",
+}
+
+
+export type SearchableTalkThemeAggregationInput = {
+  name: string,
+  type: SearchableAggregateType,
+  field: SearchableTalkThemeAggregateField,
+};
+
+export enum SearchableAggregateType {
+  terms = "terms",
+  avg = "avg",
+  min = "min",
+  max = "max",
+  sum = "sum",
+}
+
+
+export enum SearchableTalkThemeAggregateField {
+  id = "id",
+  talkId = "talkId",
+  talkTheme = "talkTheme",
+  genre = "genre",
+  createdAt = "createdAt",
+  updatedAt = "updatedAt",
+}
+
+
+export type SearchableTalkThemeConnection = {
+  __typename: "SearchableTalkThemeConnection",
+  items:  Array<TalkTheme | null >,
+  nextToken?: string | null,
+  total?: number | null,
+  aggregateItems:  Array<SearchableAggregateResult | null >,
+};
+
+export type SearchableAggregateResult = {
+  __typename: "SearchableAggregateResult",
+  name: string,
+  result?: SearchableAggregateGenericResult | null,
+};
+
+export type SearchableAggregateGenericResult = SearchableAggregateScalarResult | SearchableAggregateBucketResult
+
+
+export type SearchableAggregateScalarResult = {
+  __typename: "SearchableAggregateScalarResult",
+  value: number,
+};
+
+export type SearchableAggregateBucketResult = {
+  __typename: "SearchableAggregateBucketResult",
+  buckets?:  Array<SearchableAggregateBucketResultItem | null > | null,
+};
+
+export type SearchableAggregateBucketResultItem = {
+  __typename: "SearchableAggregateBucketResultItem",
+  key: string,
+  doc_count: number,
 };
 
 export type ModelSubscriptionTalkThemeFilterInput = {
@@ -182,7 +317,7 @@ export type CreateTalkThemeMutationVariables = {
 export type CreateTalkThemeMutation = {
   createTalkTheme?:  {
     __typename: "TalkTheme",
-    id?: string | null,
+    id: string,
     talkId: number,
     talkTheme?: string | null,
     genre?: string | null,
@@ -199,7 +334,7 @@ export type UpdateTalkThemeMutationVariables = {
 export type UpdateTalkThemeMutation = {
   updateTalkTheme?:  {
     __typename: "TalkTheme",
-    id?: string | null,
+    id: string,
     talkId: number,
     talkTheme?: string | null,
     genre?: string | null,
@@ -216,7 +351,7 @@ export type DeleteTalkThemeMutationVariables = {
 export type DeleteTalkThemeMutation = {
   deleteTalkTheme?:  {
     __typename: "TalkTheme",
-    id?: string | null,
+    id: string,
     talkId: number,
     talkTheme?: string | null,
     genre?: string | null,
@@ -232,7 +367,7 @@ export type GetTalkThemeQueryVariables = {
 export type GetTalkThemeQuery = {
   getTalkTheme?:  {
     __typename: "TalkTheme",
-    id?: string | null,
+    id: string,
     talkId: number,
     talkTheme?: string | null,
     genre?: string | null,
@@ -252,7 +387,7 @@ export type ListTalkThemesQuery = {
     __typename: "ModelTalkThemeConnection",
     items:  Array< {
       __typename: "TalkTheme",
-      id?: string | null,
+      id: string,
       talkId: number,
       talkTheme?: string | null,
       genre?: string | null,
@@ -263,6 +398,48 @@ export type ListTalkThemesQuery = {
   } | null,
 };
 
+export type SearchTalkThemesQueryVariables = {
+  filter?: SearchableTalkThemeFilterInput | null,
+  sort?: Array< SearchableTalkThemeSortInput | null > | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  from?: number | null,
+  aggregates?: Array< SearchableTalkThemeAggregationInput | null > | null,
+};
+
+export type SearchTalkThemesQuery = {
+  searchTalkThemes?:  {
+    __typename: "SearchableTalkThemeConnection",
+    items:  Array< {
+      __typename: "TalkTheme",
+      id: string,
+      talkId: number,
+      talkTheme?: string | null,
+      genre?: string | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null >,
+    nextToken?: string | null,
+    total?: number | null,
+    aggregateItems:  Array< {
+      __typename: "SearchableAggregateResult",
+      name: string,
+      result: ( {
+          __typename: "SearchableAggregateScalarResult",
+          value: number,
+        } | {
+          __typename: "SearchableAggregateBucketResult",
+          buckets?:  Array< {
+            __typename: string,
+            key: string,
+            doc_count: number,
+          } | null > | null,
+        }
+      ) | null,
+    } | null >,
+  } | null,
+};
+
 export type OnCreateTalkThemeSubscriptionVariables = {
   filter?: ModelSubscriptionTalkThemeFilterInput | null,
 };
@@ -270,7 +447,7 @@ export type OnCreateTalkThemeSubscriptionVariables = {
 export type OnCreateTalkThemeSubscription = {
   onCreateTalkTheme?:  {
     __typename: "TalkTheme",
-    id?: string | null,
+    id: string,
     talkId: number,
     talkTheme?: string | null,
     genre?: string | null,
@@ -286,7 +463,7 @@ export type OnUpdateTalkThemeSubscriptionVariables = {
 export type OnUpdateTalkThemeSubscription = {
   onUpdateTalkTheme?:  {
     __typename: "TalkTheme",
-    id?: string | null,
+    id: string,
     talkId: number,
     talkTheme?: string | null,
     genre?: string | null,
@@ -302,7 +479,7 @@ export type OnDeleteTalkThemeSubscriptionVariables = {
 export type OnDeleteTalkThemeSubscription = {
   onDeleteTalkTheme?:  {
     __typename: "TalkTheme",
-    id?: string | null,
+    id: string,
     talkId: number,
     talkTheme?: string | null,
     genre?: string | null,

@@ -8,7 +8,8 @@ const About: NextPage = () => {
         <title>About Page</title>
       </Head>
       <main>
-        <h1>アバウトページ</h1>
+        <h1>本アプリについて</h1>
+        <div>会話の話題を提供します。</div>
       </main>
     </div>
   );
