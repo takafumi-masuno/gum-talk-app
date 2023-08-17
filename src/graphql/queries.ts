@@ -36,3 +36,51 @@ export const listTalkThemes = /* GraphQL */ `
     }
   }
 `;
+export const searchTalkThemes = /* GraphQL */ `
+  query SearchTalkThemes(
+    $filter: SearchableTalkThemeFilterInput
+    $sort: [SearchableTalkThemeSortInput]
+    $limit: Int
+    $nextToken: String
+    $from: Int
+    $aggregates: [SearchableTalkThemeAggregationInput]
+  ) {
+    searchTalkThemes(
+      filter: $filter
+      sort: $sort
+      limit: $limit
+      nextToken: $nextToken
+      from: $from
+      aggregates: $aggregates
+    ) {
+      items {
+        id
+        talkId
+        talkTheme
+        genre
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      total
+      aggregateItems {
+        name
+        result {
+          ... on SearchableAggregateScalarResult {
+            value
+          }
+          ... on SearchableAggregateBucketResult {
+            buckets {
+              key
+              doc_count
+              __typename
+            }
+          }
+        }
+        __typename
+      }
+      __typename
+    }
+  }
+`;
